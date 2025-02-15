@@ -5,7 +5,7 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /Users/zkotbi/Desktop/Inception/srcs/wordpress
+      device: /home/zkotbi/data/wordpress
       o: bind
       type: none
 
@@ -13,52 +13,51 @@ volumes:
     name: mariadb
     driver: local
     driver_opts:
-      device: /Users/zkotbi/Desktop/Inception/srcs/mariadb
+      device: /home/zkotbi/data/mariadb
       o: bind
       type: none
 
 networks:
   inception:
     name: inception
-
-  services:
-    nginx:
-      container_name: nginx
-      build: ./requirements/nginx/.
-      image: nginx:1.0
-      ports:
-        - "443:443"
-      depends_on:
-        - wordpress
-      volumes:
-        - wordpress:/var/www/html
-      networks:
-        - inception
-      env_file:
-        - .env
-      restart: always
-    wordpress:
-      container_name: wordpress
-      build: ./requirements/wordpress/.
-      image: wordpress:1.0
-      depends_on:
-        - mariadb
-      volumes:
-        - wordpress:/var/www/html
-      networks:
-        - inception
-      env_file:
-        - .env
-      restart: always
-    mariadb:
-      container_name: mariadb
-      build: ./requirements/mariadb/.
-      image: mariadb:1.0
-      volumes:
-        - mariadb:/var/lib/mysql
-      networks:
-        - inception
-      env_file:
-        - .env
-      restart: always
+services:
+  # nginx:
+  #   container_name: nginx
+  #   build: ./requirements/nginx/.
+  #   image: nginx:1.1
+  #   ports:
+  #     - "443:443"
+  #   depends_on:
+  #     - wordpress
+  #   volumes:
+  #     - wordpress:/var/www/html
+  #   networks:
+  #     - inception
+  #   env_file:
+  #     - .env
+  #   restart: always
+  # wordpress:
+  #   container_name: wordpress
+  #   build: ./requirements/wordpress/.
+  #   image: wordpress:1.1
+  #   depends_on:
+  #     - mariadb
+  #   volumes:
+  #     - wordpress:/var/www/html
+  #   networks:
+  #     - inception
+  #   env_file:
+  #     - .env
+  #   restart: always
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/.
+    image: mariadb:1.1
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: always
 

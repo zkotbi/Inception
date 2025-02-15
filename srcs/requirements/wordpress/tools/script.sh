@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir -p /var/www/html
 
 cd /var/www/html

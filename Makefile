@@ -2,7 +2,9 @@
 all : up
 
 up : 
-	docker-compose -f ./srcs/docker-compose.yml up -d
+	mkdir -p /home/zkotbi/data/mariadb
+	mkdir -p /home/zkotbi/data/wordpress
+	docker-compose -f ./srcs/docker-compose.yml up
 
 down : 
 	docker-compose -f ./srcs/docker-compose.yml down
