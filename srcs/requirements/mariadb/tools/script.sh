@@ -23,7 +23,10 @@ echo "FLUSH PRIVILEGES;" >> /tmp/init.sql
 
 # /usr/bin/mysqld_safe
 
-mkdir -p /run/myqld
+mkdir -p /run/mysqld
+chown mysql:mysql /run/mysqld
+chmod 755 /run/mysqld
+
 
 mv /tmp/init.sql /etc/mysql/init.sql
 
