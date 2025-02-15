@@ -21,34 +21,34 @@ networks:
   inception:
     name: inception
 services:
-  # nginx:
-  #   container_name: nginx
-  #   build: ./requirements/nginx/.
-  #   image: nginx:1.1
-  #   ports:
-  #     - "443:443"
-  #   depends_on:
-  #     - wordpress
-  #   volumes:
-  #     - wordpress:/var/www/html
-  #   networks:
-  #     - inception
-  #   env_file:
-  #     - .env
-  #   restart: always
-  # wordpress:
-  #   container_name: wordpress
-  #   build: ./requirements/wordpress/.
-  #   image: wordpress:1.1
-  #   depends_on:
-  #     - mariadb
-  #   volumes:
-  #     - wordpress:/var/www/html
-  #   networks:
-  #     - inception
-  #   env_file:
-  #     - .env
-  #   restart: always
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/.
+    image: nginx:1.1
+    ports:
+      - "443:443"
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: always
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/.
+    image: wordpress:1.2
+    depends_on:
+      - mariadb
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    env_file:
+      - .env
+    restart: always
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb/.

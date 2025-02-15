@@ -14,13 +14,16 @@ mv wp-cli.phar /usr/local/bin/wp
 
 wp core download --allow-root
 
-sed -i -r "s/database_name_here/$db_name/1"   wp-config.php
+chmod 777 /var/www
+chmod 777 /var/www/html
 
-sed -i -r "s/username_here/$db_user/1"  wp-config.php
+sed -i -r "s/database_name_here/$db_name/1"   wp-config-sample.php
 
-sed -i -r "s/password_here/$db_pwd/1"    wp-config.php
+sed -i -r "s/username_here/$db_user/1"  wp-config-sample.php
 
-sed -i -r "s/localhost/mariadb/1"    wp-config.php
+sed -i -r "s/password_here/$db_pwd/1"    wp-config-sample.php
+
+sed -i -r "s/localhost/mariadb/1"    wp-config-sample.php
 
 wp core install --url=$DOMAIN_NAME/ --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
 
@@ -32,4 +35,4 @@ sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm
 
 mkdir /run/php
 
-/usr/sbin/php-fpm7.3 -F
+/usr/sbin/php-fpm7.4 -F
