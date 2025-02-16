@@ -37,15 +37,22 @@ wp option update siteurl "$DOMAIN_NAME" --allow-root
 
 wp option update home "$DOMAIN_NAME" --allow-root
 
-wp theme install astra --activate --allow-root
 
-wp plugin install astra-sites --activate --allow-root
+# Download and install Twenty Twenty-Four theme
+wp theme install twentytwentyfour --activate --allow-root
 
-wp plugin install ultimate-addons-for-gutenberg --activate --allow-root
+# Optional - Download block patterns recommended for Twenty Twenty-Four
+wp plugin install create-block-theme --activate --allow-root
+wp plugin install gutenberg --activate --allow-root
+# wp theme install astra --activate --allow-root
 
-wp plugin install wpforms-lite --activate --allow-root
+# wp plugin install astra-sites --activate --allow-root
 
-wp plugin install elementor --activate --allow-root
+# wp plugin install ultimate-addons-for-gutenberg --activate --allow-root
+
+# wp plugin install wpforms-lite --activate --allow-root
+
+# wp plugin install elementor --activate --allow-root
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
 
