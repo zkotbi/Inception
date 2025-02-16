@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 20
+sleep 30
 
 mkdir -p /var/www/html
 
@@ -40,6 +40,7 @@ wp option update home "$DOMAIN_NAME" --allow-root
 wp theme install twentytwentyfour --activate --allow-root
 
 wp plugin install create-block-theme --activate --allow-root
+
 wp plugin install gutenberg --activate --allow-root
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf
