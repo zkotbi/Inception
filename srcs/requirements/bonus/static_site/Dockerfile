@@ -6,4 +6,4 @@ RUN apt install -y npm nodejs
 
 COPY ./tools/ .
 
-CMD ["nodejs" "./tools/server.js"]
+CMD ["node ./tools/server.js"]

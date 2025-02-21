@@ -63,7 +63,7 @@ services:
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site/.
-    image: static_site:1337
+    image: static_site:1.1
     ports:
       - "8000:4000"
     networks:
@@ -81,9 +81,9 @@ services:
   cadvisor:
     container_name: cadvisor
     build: ./requirements/bonus/cadvisor/.
-    image: cadvisor:1337
+    image: cadvisor:1.1
     ports:
-      - "8002:80"
+      - "8002:8080"
     networks:
       - inception
     restart: always
