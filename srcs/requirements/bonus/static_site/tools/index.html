@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>static site</title>
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="index.js"></script>
+
+</head>
+
+<body>
+	<div id="header">
+		<div class="container">
+			<nav>
+				<img src="images/Portfolio.png" class="logo">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</nav>
+			<div class="header-text">
+				<p>UI/UX Designer</p>
+				<h1>Hi, I'm zaid kotbi</h1>
+			</div>
+		</div>	
+	</div>
+	<div id="about">
+		<div class="container">
+			<div class="row">
+				<div class="about-col-1">
+					<img src="images/user.jpg">
+				</div>
+				<div class="about-col-2">
+					<h1 class="sub-title">About Me</h1>
+					<p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+					<div class="tab-title">
+						<p class="tab-links active-links" onclick="opentab('skills')">Skills</p>	
+						<p class="tab-links" onclick="opentab('experience')">Experience</p>	
+						<p class="tab-links" onclick="opentab('education')">Education</p>	
+					</div>
+					<div class="tab-contents active-tab" id="skills">
+						<ul>
+							<li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+							<li><span>Web Devlopement</span><br>Web app Development</li>
+							<li><span>App Devlopement</span><br>Building Android/iOS apps</li>
+						</ul>
+					</div>
+					<div class="tab-contents" id="education">
+						<ul>
+							<li><span>App Devlopement</span><br>Building Android/iOS apps</li>
+						</ul>
+					</div>
+					<div class="tab-contents" id="experience">
+						<ul>
+							<li><span>Web Devlopement</span><br>Web app Development</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

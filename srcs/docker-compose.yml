@@ -60,4 +60,30 @@ services:
     env_file:
       - .env
     restart: always
-
+  static_site:
+    container_name: static_site
+    build: ./requirements/bonus/static_site/.
+    image: static_site:1337
+    ports:
+      - "8000:4000"
+    networks:
+      - inception
+    restart: always
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer/.
+    image: adminer:1337
+    ports:
+      - "8001:80"
+    networks:
+      - inception
+    restart: always
+  cadvisor:
+    container_name: cadvisor
+    build: ./requirements/bonus/cadvisor/.
+    image: cadvisor:1337
+    ports:
+      - "8002:80"
+    networks:
+      - inception
+    restart: always
