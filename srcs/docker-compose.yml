@@ -65,7 +65,7 @@ services:
     build: ./requirements/bonus/static_site/.
     image: static_site:1.1
     ports:
-      - "8000:4000"
+      - "4000:4000"
     networks:
       - inception
     restart: always
@@ -73,6 +73,8 @@ services:
     container_name: adminer
     build: ./requirements/bonus/adminer/.
     image: adminer:1337
+    depends_on:
+      - mariadb
     ports:
       - "8001:80"
     networks:
@@ -82,8 +84,14 @@ services:
     container_name: cadvisor
     build: ./requirements/bonus/cadvisor/.
     image: cadvisor:1.1
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
     ports:
-      - "8002:8080"
+      - "8080:8080"
     networks:
       - inception
     restart: always
